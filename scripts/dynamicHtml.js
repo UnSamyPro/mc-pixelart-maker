@@ -4,13 +4,57 @@ Minecraft Pixel Art Maker
 https://gd-codes.github.io/mc-pixelart-maker/
 */
 
-const materialnames = ["White Dye", "Light Grey Dye", "Grey Dye", "Black Dye", "Brown Dye", "Red Dye", "Orange Dye", 
-    "Yellow Dye", "Lime Dye", "Green Dye", "Cyan Dye", "Light Blue Dye", "Blue Dye", "Purple Dye", "Magenta Dye", "Pink Dye",
-    "Oak", "Spruce", "Crimson", "Warped", "Dirt", "Sand", "Clay", "Stone", "Deepslate", "Netherrack", "Quartz", 
-    "Exposed Copper", "Oxidised Copper", "Foliage", "Tree Leaves", "Birch Leaves", "Spruce Leaves", "Lichen", "Crimson Bark",
-    "Warped Bark", "Crimson Nylium", "Warped Wart", "Turquoise", "Iron", "Redstone", "Gold", "Emerald", "Lapis", 
-    "Raw Iron", "Calcite", "Tuff", "Dripstone", "Slime", "Web", "Ice", "Grass"];
+// TODO - here
+// const materialnames = ["White Dye", "Light Grey Dye", "Grey Dye", "Black Dye", "Brown Dye", "Red Dye", "Orange Dye", 
+//     "Yellow Dye", "Lime Dye", "Green Dye", "Cyan Dye", "Light Blue Dye", "Blue Dye", "Purple Dye", "Magenta Dye", "Pink Dye",
+//     "Oak", "Spruce", "Crimson", "Warped", "Dirt", "Sand", "Clay", "Stone", "Deepslate", "Netherrack", "Quartz", 
+//     "Exposed Copper", "Oxidised Copper", "Foliage", "Tree Leaves", "Birch Leaves", "Spruce Leaves", "Lichen", "Crimson Bark",
+//     "Warped Bark", "Crimson Nylium", "Warped Wart", "Turquoise", "Iron", "Redstone", "Gold", "Emerald", "Lapis", 
+//     "Raw Iron", "Calcite", "Tuff", "Dripstone", "Slime", "Web", "Ice", "Grass"];
 // Ordered to match `colourmap` from imageProcessor.js. Do not change.
+var materialnames = [];
+
+colors.list.forEach(element => {
+  materialnames.push(element.name);
+});
+
+addMaterialSelection();
+
+
+function addMaterialSelection() {
+
+  var tbody = $("#colormap");
+
+  colors.list.forEach(element => {
+    var tr = makeTrMaterialSelection(element);
+    tbody.append(tr);
+  });
+
+}
+
+function makeTrMaterialSelection(element) {
+  var tr = $("<tr></tr>");
+
+  var td1 = $("<td class></td>");
+  var td2 = $('<div class="form-check checkbox-scaled"></div>');
+  var input = $('<input type="checkbox" class="form-check-input position-static" name="clrSelect" value="white"/>');
+  td2.append(input);
+  td1.append(td2);
+  tr.append(td1);
+  
+  let color = "";
+  color += element.color[0] + "," + element.color[1] + "," + element.color[2];
+  var td3 = $(`<td class="colour-insert display-4" data-colour="rgb(${color})"></td>`);
+  var td4 = $("<td></td>").text(element.name);
+  var td5 = $("<td></td>").text(element.description);
+  tr.append(td3);
+  tr.append(td4);
+  tr.append(td5);
+
+  return tr;
+}
+
+
 
 function newImageUpload() {
   var uid = "";

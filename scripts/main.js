@@ -14,10 +14,394 @@ const icons = {
   infosquare : `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-square" viewBox="0 0 16 16"><path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/><path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/></svg>`
 };
 
-const default_palette = "white lightgrey grey black brown red orange yellow lime green cyan "+
-   "lightblue blue purple magenta pink oak spruce crimson warped dirt sand clay stone deepslate nether quartz expocopper "+
-   "oxicopper foliage birchleaves conifers lichen darkcrimson darkwarped crimsonylium warpwart turquoise steel "+
-   "brightred gold emerald lapis rawiron calcite tuff dripstone slime web ice";
+var colors = {
+  "list": [
+      {
+          "name": "grass",
+          "material": "grass_block",
+          "color": [127, 178, 56],
+          "description": "Grass Block, Slime Block"
+      },
+      {
+          "name": "sand",
+          "material": "birch_planks",
+          "color": [247, 233, 163],
+          "description": ""
+      },
+      {
+          "name": "wool",
+          "material": "cobweb",
+          "color": [199, 199, 199],
+          "description": ""
+      },
+      {
+          "name": "fire",
+          "material": "redstone_block",
+          "color": [255, 0, 0],
+          "description": ""
+      },
+      {
+          "name": "ice",
+          "material": "ice",
+          "color": [160, 160, 255],
+          "description": ""
+      },
+      {
+          "name": "metal",
+          "material": "iron_block",
+          "color": [167, 167, 167],
+          "description": ""
+      },
+      {
+          "name": "plant",
+          "material": "oak_leaves",
+          "color": [0, 124, 0],
+          "description": ""
+      },
+      {
+          "name": "snow",
+          "material": "snow_block",
+          "color": [255, 255, 255],
+          "description": ""
+      },
+      {
+          "name": "clay",
+          "material": "clay_block",
+          "color": [164, 168, 184],
+          "description": ""
+      },
+      {
+          "name": "dirt",
+          "material": "dirt",
+          "color": [151, 109, 77],
+          "description": ""
+      },
+      {
+          "name": "stone",
+          "material": "stone",
+          "color": [112, 112, 112],
+          "description": ""
+      },
+      {
+          "name": "water",
+          "material": "water",
+          "color": [64, 64, 255],
+          "description": ""
+      },
+      {
+          "name": "wood",
+          "material": "oak_planks",
+          "color": [143, 119, 72],
+          "description": ""
+      },
+      {
+          "name": "quartz",
+          "material": "diorite",
+          "color": [255, 252, 245],
+          "description": ""
+      },
+      {
+          "name": "color_orange",
+          "material": "orange_concrete",
+          "color": [216, 127, 51],
+          "description": ""
+      },
+      {
+          "name": "color_magenta",
+          "material": "magenta_concrete",
+          "color": [178, 76, 216],
+          "description": ""
+      },
+      {
+          "name": "color_light_blue",
+          "material": "light_blue_concrete",
+          "color": [102, 153, 216],
+          "description": ""
+      },
+      {
+          "name": "yellow",
+          "material": "yellow_concrete",
+          "color": [229, 229, 51],
+          "description": ""
+      },
+      {
+          "name": "color_light_green",
+          "material": "lime_concrete",
+          "color": [127, 204, 25],
+          "description": ""
+      },
+      {
+          "name": "color_pink",
+          "material": "pink_concrete",
+          "color": [242, 127, 165],
+          "description": ""
+      },
+              {
+          "name": "color_gray",
+          "material": "gray_concrete",
+          "color": [76, 76, 76],
+          "description": ""
+      },
+      {
+          "name": "color_light_gray",
+          "material": "light_gray_concrete",
+          "color": [153, 153, 153],
+          "description": ""
+      },
+      {
+          "name": "color_cyan",
+          "material": "cyan_concrete",
+          "color": [76, 127, 153],
+          "description": ""
+      },
+      {
+          "name": "color_purple",
+          "material": "purple_concrete",
+          "color": [127, 63, 178],
+          "description": ""
+      },
+      {
+          "name": "color_blue",
+          "material": "blue_concrete",
+          "color": [	51, 76, 178],
+          "description": ""
+      },
+      {
+          "name": "color_brown",
+          "material": "brown_concrete",
+          "color": [102, 76, 51],
+          "description": ""
+      },
+      {
+          "name": "color_green",
+          "material": "green_concrete",
+          "color": [102, 127, 51],
+          "description": ""
+      },
+      {
+          "name": "color_red",
+          "material": "red_concrete",
+          "color": [153, 51, 51],
+          "description": ""
+      },
+      {
+          "name": "color_black",
+          "material": "black_concrete",
+          "color": [25, 25, 25],
+          "description": ""
+      },
+      {
+          "name": "gold",
+          "material": "gold_block",
+          "color": [250, 238, 77],
+          "description": ""
+      },
+      {
+          "name": "diamond",
+          "material": "diamond_block",
+          "color": [92, 219, 213],
+          "description": ""
+      },
+      {
+          "name": "lapis",
+          "material": "lapis_block",
+          "color": [74, 128, 255],
+          "description": ""
+      },
+      {
+          "name": "emerald",
+          "material": "emerald_block",
+          "color": [0, 217, 58],
+          "description": ""
+      },
+      {
+          "name": "podzol",
+          "material": "spruce_planks",
+          "color": [129, 86, 49],
+          "description": ""
+      },
+      {
+          "name": "nether",
+          "material": "netherrack",
+          "color": [112, 2, 0],
+          "description": ""
+      },
+      {
+          "name": "terracotta_white",
+          "material": "white_terracotta",
+          "color": [209, 177, 161],
+          "description": ""
+      },
+      {
+          "name": "terracotta_orange",
+          "material": "orange_terracotta",
+          "color": [159, 82, 36],
+          "description": ""
+      },
+      {
+          "name": "terracotta_magenta",
+          "material": "magenta_terracotta",
+          "color": [149, 87, 108],
+          "description": ""
+      },
+      {
+          "name": "terracotta_light_blue",
+          "material": "light_blue_terracotta",
+          "color": [112, 108, 138],
+          "description": ""
+      },
+      {
+          "name": "terracotta_yellow",
+          "material": "yellow_terracotta",
+          "color": [186, 133, 36],
+          "description": ""
+      },
+      {
+          "name": "terracotta_light_green",
+          "material": "lime_terracotta",
+          "color": [103, 117, 53],
+          "description": ""
+      },
+      {
+          "name": "terracotta_pink",
+          "material": "pink_terracotta",
+          "color": [160, 77, 78],
+          "description": ""
+      },
+      {
+          "name": "terracotta_gray",
+          "material": "gray_terracotta",
+          "color": [57, 41, 35],
+          "description": ""
+      },
+      {
+          "name": "terracotta_light_gray",
+          "material": "light_gray_terracotta",
+          "color": [135, 107, 98],
+          "description": ""
+      },
+      {
+          "name": "terracotta_cyan",
+          "material": "cyan_terracotta",
+          "color": [87, 92, 92],
+          "description": ""
+      },
+      {
+          "name": "terracotta_purple",
+          "material": "purple_terracotta",
+          "color": [122, 73, 88],
+          "description": ""
+      },
+      {
+          "name": "terracotta_blue",
+          "material": "blue_terracotta",
+          "color": [76, 62, 92],
+          "description": ""
+      },
+      {
+          "name": "terracotta_brown",
+          "material": "brown_terracotta",
+          "color": [76, 50, 35],
+          "description": ""
+      },
+      {
+          "name": "terracotta_green",
+          "material": "green_terracotta",
+          "color": [76, 82, 42],
+          "description": ""
+      },
+      {
+          "name": "terracotta_red",
+          "material": "red_terracotta",
+          "color": [142, 60, 46],
+          "description": ""
+      },
+      {
+          "name": "terracotta_black",
+          "material": "black_terracotta",
+          "color": [37, 22, 16],
+          "description": ""
+      },
+      {
+          "name": "crimson_nylium",
+          "material": "crimson_nylium",
+          "color": [189, 48, 49],
+          "description": ""
+      },
+      {
+          "name": "crimson_stem",
+          "material": "crimson_stem",
+          "color": [148, 63, 97],
+          "description": ""
+      },
+      {
+          "name": "crimson_hyphae",
+          "material": "crimson_hyphae",
+          "color": [92, 25, 29],
+          "description": ""
+      },
+      {
+          "name": "warped_nylium",
+          "material": "warped_nylium",
+          "color": [22, 126, 134],
+          "description": ""
+      },
+      {
+          "name": "warped_stem",
+          "material": "warped_stem",
+          "color": [58, 142, 140],
+          "description": ""
+      },
+      {
+          "name": "warped_hyphae",
+          "material": "warped_hyphae",
+          "color": [86, 44, 62],
+          "description": ""
+      },
+      {
+          "name": "warped_wart_block",
+          "material": "warped_wart_block",
+          "color": [20, 180, 133],
+          "description": ""
+      },
+      {
+          "name": "deepslate",
+          "material": "deepslate",
+          "color": [100, 100, 100],
+          "description": ""
+      },
+              {
+          "name": "raw_iron",
+          "material": "raw_iron_block",
+          "color": [216, 175, 147],
+          "description": ""
+      },
+      {
+          "name": "glow_lichen",
+          "material": "glow_lichen",
+          "color": [127, 167, 150],
+          "description": ""
+      }
+  ]
+};
+
+// $.getJSON('http://query.yahooapis.com/v1/public/yql?q=select%20%2a%20from%20yahoo.finance.quotes%20WHERE%20symbol%3D%27WRC%27&format=json&diagnostics=true&env=store://datatables.org/alltableswithkeys&callback', function(data) {
+//   colors = JSON.parse(data);
+// });
+
+// TODO - here
+// const default_palette = "white lightgrey grey black brown red orange yellow lime green cyan "+
+//    "lightblue blue purple magenta pink oak spruce crimson warped dirt sand clay stone deepslate nether quartz expocopper "+
+//    "oxicopper foliage birchleaves conifers lichen darkcrimson darkwarped crimsonylium warpwart turquoise steel "+
+//    "brightred gold emerald lapis rawiron calcite tuff dripstone slime web ice";
+// const default_palette = "grass sand wool fire ice metal plant snow clay dirt stone water wood quartz color_orange color_magenta color_light_blue yellow color_light_green color_pink color_gray color_light_gray color_cyan color_purple color_blue color_brown color_green color_red color_black gold diamond lapis emerald podzol nether terracotta_white terracotta_orange terracotta_magenta terracotta_light_blue terracotta_yellow terracotta_light_green terracotta_pink terracotta_gray terracotta_light_gray terracotta_cyan terracotta_purple terracotta_blue terracotta_brown terracotta_green terracotta_red terracotta_black crimson_nylium crimson_stem crimson_hyphae warped_nylium warped_stem warped_hyphae warped_wart_block deepslate raw_iron glow_lichen";
+
+var default_palette = ""
+
+colors.list.forEach(element => {
+  default_palette += element.name;
+});
+
 
 const structures = {
   azalea_leaves:"CgAAAw4AZm9ybWF0X3ZlcnNpb24BAAAACQQAc2l6ZQMDAAAAAQAAAAEAAAABAAAACgkAc3RydWN0dXJlCQ0AYmxvY2tfaW5kaWNlcwkCAAAAAwEAAAAAAAAAAwEAAAD/////CQgAZW50aXRpZXMAAAAAAAoHAHBhbGV0dGUKBwBkZWZhdWx0CQ0AYmxvY2tfcGFsZXR0ZQoBAAAACAQAbmFtZRcAbWluZWNyYWZ0OmF6YWxlYV9sZWF2ZXMKBgBzdGF0ZXMBDgBwZXJzaXN0ZW50X2JpdAEBCgB1cGRhdGVfYml0AAADBwB2ZXJzaW9uA9IQAQAKEwBibG9ja19wb3NpdGlvbl9kYXRhAAAAAAkWAHN0cnVjdHVyZV93b3JsZF9vcmlnaW4DAwAAAE0SAABiAAAAcAAAAAA=",

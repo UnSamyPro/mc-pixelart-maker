@@ -5,14 +5,20 @@ https://gd-codes.github.io/mc-pixelart-maker/
 */
 
 //Do NOT change these values. The names in `blocks` are ordered to match `colourlist` of `imageProcessor.js`.
-const blocks = ["concrete 0","concrete 8","concrete 7","concrete 15","concrete 12","concrete 14","concrete 1",
-      "concrete 4","concrete 5","concrete 13","concrete 9","concrete 3","concrete 11","concrete 10","concrete 2",
-      "concrete 6","planks 0","planks 1","crimson_planks 0","warped_planks 0","dirt 1","sandstone 0","clay 0",
-      "stone 0","deepslate 0","netherrack 0","quartz_block 0","waxed_exposed_copper 0","waxed_oxidized_copper 0", 
-      "azalea_leaves 1","leaves 12","leaves 14","leaves 13","glow_lichen 0","crimson_hyphae 0",
-      "warped_hyphae 0","crimson_nylium 0","warped_wart_block 0","diamond_block 0","iron_block 0","redstone_block 0",
-      "gold_block 0","emerald_block 0","lapis_block 0","raw_iron_block 0","calcite 0","tuff 0","dripstone_block 0",
-      "slime 0","web 0","blue_ice 0","grass 0"];
+// const blocks = ["grass_block","dirt","stone","dried_kelp_block","oak_planks","diorite","pumpkin",
+//       "magenta_concrete","light_blue_concrete","yellow_concrete","lime_concrete","birch_planks","pink_concrete","gray_concrete","light_gray_concrete",
+//       "cyan_concrete","purple_concrete","blue_concrete","dark_oak_planks","green_concrete","red_concrete","black_concrete","cobweb",
+//       "gold_block","diamond_block","lapis_block","emerald_block","spruce_planks","netherrack", 
+//       "white_terracotta","orange_terracotta","magenta_terracotta","light_blue_terracotta","redstone_block","yellow_terracotta",
+//       "warped_hyphae 0","crimson_nylium 0","warped_wart_block 0","diamond_block 0","iron_block 0","redstone_block 0",
+//       "gold_block 0","emerald_block 0","lapis_block 0","raw_iron_block 0","calcite 0","tuff 0","dripstone_block 0",
+//       "slime 0","web 0","blue_ice 0","grass 0"];
+
+var blocks = [];
+
+colors.list.forEach(element => {
+  blocks.push(element.material);
+});
 
 function findYMap(imgdata, maxY) {
   var Ymap = [], x, z, column, c, type, lastY, min;
@@ -83,14 +89,18 @@ function writeCommands(name, imobj, palette, extrainfo, keep, linkpos) {
         code = blocks[Math.floor(indexOfArray(pix, colourlist) / 3)];
         y = (extrainfo <= 1)? 0 : ((linkpos)? yMap[x][z] : yMap[x+x0][z+z0]);
         switch (code) {
-            // Anomalies - some blocks must be loaded as structures
-          case "azalea_leaves 1":
-            fun += ((keep)?`execute @p ~ ~ ~ detect ~${x} ~${y} ~${z} air -1 `:"") + 
-              `structure load mapart:azalea_leaves ~${x} ~${y} ~${z}\n`;
-            break;
-          case "glow_lichen 0":
-            fun += ((keep)?`execute @p ~ ~ ~ detect ~${x} ~${y-1} ~${z} air -1 `:"") + 
-              `structure load mapart:glow_lichen ~${x} ~${y-1} ~${z}\n`;
+          //   // Anomalies - some blocks must be loaded as structures
+          // case "azalea_leaves":
+          //   fun += ((keep)?`execute @p ~ ~ ~ detect ~${x} ~${y} ~${z} air -1 `:"") + 
+          //     `structure load mapart:azalea_leaves ~${x} ~${y} ~${z}\n`;
+          //   break;
+          case "glow_lichen":
+            // fun += ((keep)?`execute @p ~ ~ ~ detect ~${x} ~${y-1} ~${z} air -1 `:"") + 
+            fun += ((keep)?`execute if block ~${x} ~${y-1} ~${z} air run `:"") + 
+              // `structure load mapart:glow_lichen ~${x} ~${y-1} ~${z}\n`;
+              `setblock ~ ~ ~ structure_block[mode=load]{name:"mapart:glow_lichen",posX:${x},posY:${y},posZ:${z},rotation:"NONE",mirror:"NONE",mode:"LOAD"} replace\n`;
+              fun += "setblock ~ ~-1 ~ redstone_block replace\n";
+              fun += "setblock ~ ~-1 ~ air replace\n";
             break;
           default : // Normal case, direct placement for most of the blocks
             fun += `setblock ~${x} ~${y} ~${z} ${code}${replMode}`;
@@ -101,6 +111,9 @@ function writeCommands(name, imobj, palette, extrainfo, keep, linkpos) {
       var nextzone = zone_origins[i+1];        //Shift the user to the origin for next zone
       //Marker block
       fun += "structure load mapart:glowstone ~".concat(nextzone[0]-x0, " ~-1 ~", nextzone[1]-z0, "\n");
+      fun += `setblock ~ ~ ~ structure_block[mode=load]{name:"mapart:glowstone",posX:${nextzone[0]-x0},posY:-1,posZ:${nextzone[1]-z0},rotation:"NONE",mirror:"NONE",mode:"LOAD"} replace\n`;
+      fun += "setblock ~ ~-1 ~ redstone_block replace\n";
+      fun += "setblock ~ ~-1 ~ air replace\n";
       fun += "teleport @p ~".concat(nextzone[0]-x0, " ~ ~", nextzone[1]-z0, "\n")
     }
     fun = fun.replace(/~0/gm, "~");

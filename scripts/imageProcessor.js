@@ -49,19 +49,18 @@ colors.list.forEach(element => {
 });
 
 
+// https://gd-codes.github.io/mc-pixelart-maker/index.html
 // https://minecraft.fandom.com/wiki/Map_item_format
 function lightPixel(rgb) {
-  // return [Math.round(255/220*rgb[0]), Math.round(255/220*rgb[1]), Math.round(255/220*rgb[2])];
-  return [Math.round(0.86*rgb[0]), Math.round(0.86*rgb[1]), Math.round(0.86*rgb[2])];
+  return [Math.round(255/220*rgb[0]), Math.round(255/220*rgb[1]), Math.round(255/220*rgb[2])];
 }
 function darkPixel(rgb) {
-  // return [Math.round(180/220*rgb[0]), Math.round(180/220*rgb[1]), Math.round(180/220*rgb[2])];
-  return [Math.round(0.71*rgb[0]), Math.round(0.71*rgb[1]), Math.round(0.71*rgb[2])];
+  return [Math.round(180/220*rgb[0]), Math.round(180/220*rgb[1]), Math.round(180/220*rgb[2])];
 }
 
 var colourlist = [];
 colors.list.forEach(function(element) {
-  colourlist.push(element.name); // Order is important
+  colourlist.push(element.color); // Order is important
   colourlist.push(darkPixel(element.color));
   colourlist.push(lightPixel(element.color));
 });

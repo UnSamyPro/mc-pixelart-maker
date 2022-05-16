@@ -66,7 +66,7 @@ var colors = {
       },
       {
           "name": "clay",
-          "material": "clay_block",
+          "material": "clay",
           "color": [164, 168, 184],
           "description": ""
       },
@@ -399,14 +399,14 @@ var colors = {
 var default_palette = ""
 
 colors.list.forEach(element => {
-  default_palette += element.name;
+  default_palette += element.name + " ";
 });
 
 
 const structures = {
-  azalea_leaves:"CgAAAw4AZm9ybWF0X3ZlcnNpb24BAAAACQQAc2l6ZQMDAAAAAQAAAAEAAAABAAAACgkAc3RydWN0dXJlCQ0AYmxvY2tfaW5kaWNlcwkCAAAAAwEAAAAAAAAAAwEAAAD/////CQgAZW50aXRpZXMAAAAAAAoHAHBhbGV0dGUKBwBkZWZhdWx0CQ0AYmxvY2tfcGFsZXR0ZQoBAAAACAQAbmFtZRcAbWluZWNyYWZ0OmF6YWxlYV9sZWF2ZXMKBgBzdGF0ZXMBDgBwZXJzaXN0ZW50X2JpdAEBCgB1cGRhdGVfYml0AAADBwB2ZXJzaW9uA9IQAQAKEwBibG9ja19wb3NpdGlvbl9kYXRhAAAAAAkWAHN0cnVjdHVyZV93b3JsZF9vcmlnaW4DAwAAAE0SAABiAAAAcAAAAAA=",
-  glowstone:"CgAAAw4AZm9ybWF0X3ZlcnNpb24BAAAACQQAc2l6ZQMDAAAAAQAAAAMAAAABAAAACgkAc3RydWN0dXJlCQ0AYmxvY2tfaW5kaWNlcwkCAAAAAwMAAAAAAAAAAQAAAAEAAAADAwAAAP///////////////wkIAGVudGl0aWVzAAAAAAAKBwBwYWxldHRlCgcAZGVmYXVsdAkNAGJsb2NrX3BhbGV0dGUKAgAAAAgEAG5hbWUTAG1pbmVjcmFmdDpnbG93c3RvbmUKBgBzdGF0ZXMAAwcAdmVyc2lvbgPSEAEACAQAbmFtZQ0AbWluZWNyYWZ0OmFpcgoGAHN0YXRlcwADBwB2ZXJzaW9uA9IQAQAKEwBibG9ja19wb3NpdGlvbl9kYXRhAAAAAAkWAHN0cnVjdHVyZV93b3JsZF9vcmlnaW4DAwAAAEYBAABFAAAAxf7//wA=",
-  glow_lichen:"CgAAAw4AZm9ybWF0X3ZlcnNpb24BAAAACQQAc2l6ZQMDAAAAAQAAAAIAAAABAAAACgkAc3RydWN0dXJlCQ0AYmxvY2tfaW5kaWNlcwkCAAAAAwIAAAAAAAAAAQAAAAMCAAAA//////////8JCABlbnRpdGllcwAAAAAACgcAcGFsZXR0ZQoHAGRlZmF1bHQJDQBibG9ja19wYWxldHRlCgIAAAAIBABuYW1lFQBtaW5lY3JhZnQ6Y29iYmxlc3RvbmUKBgBzdGF0ZXMAAwcAdmVyc2lvbgPSEAEACAQAbmFtZRUAbWluZWNyYWZ0Omdsb3dfbGljaGVuCgYAc3RhdGVzAxkAbXVsdGlfZmFjZV9kaXJlY3Rpb25fYml0cz8AAAAAAwcAdmVyc2lvbgPSEAEAChMAYmxvY2tfcG9zaXRpb25fZGF0YQAAAAAJFgBzdHJ1Y3R1cmVfd29ybGRfb3JpZ2luAwMAAABjEgAAZQAAAFoAAAAA"
+  azalea_leaves:"H4sIAAAAAAAA/z2OsQ7CMAxEr0qBNP0AvoMJibkzYmJFphgpok2qxDD063GActItZ7+zHdCgzn5mA6C4WtzAchAvnjOKGqyvQ+wf2X2nZop5gf4yWGUh4R+xmWhgEf4gDu6U4sSpVFrYm9fV0DOqvYXTPGugJ1FLejIs6iONjO3oA/eJ7nKgWevoon7pUwZtR0LnAsYAtDu8AQyon5fPAAAA",
+  glowstone:"H4sIAAAAAAAA/22NwQrCMBBEJ03VpsWTX+K1Z88eva9llWCblOyC4NdrwCiUDixzmDezLeBQi3+xBZDPFHdoOKhXz4Ish+11jMND2kw42DlKKf1ksREl5W9jyZgFY1aYaoXZzTSyKufXVYP6TBPjMPnAQ6Kb9vcxPkVjYJRw/w/Jp89edyKlCyfxMQDdEW8kGpIA+wAAAA==",
+  glow_lichen:"H4sIAAAAAAAA/22PTW/CMAyG39J068eZH8J1Z84TJ64oLaZEhLiKXVXi1y/Z1k1CWLL89byW3QINjLgHlQCyF8k3OTaoKahTR4JsDd56z8NN2kw0KCeWVfRnJSpRq/SreGaKJ6ZIzPtkPanS99oa5tPeCdu7CzREe9GPgfvekygHQov2EHmimK9KLFlRGI0z1eiWtDN6Hkc6o7pYL6lZCc96XZEqcEzVOjQL/cs387Sm5sxL+Cnw4qDR83LybrhSSL90e6v2SFEcB6Db4QsBTLCIUwEAAA=="
 };
 
 
@@ -568,10 +568,12 @@ function configureColourModal(elem) {
   $("#saveColoursBtn").click(function() {
     var clrset = [];
     $("input[name='clrSelect']").each(function(index, chekbox2) {
+      console.log($(chekbox2).attr('value'));
       if ($(chekbox2).prop('checked')) {
         clrset.push($(chekbox2).attr('value'));
       }
     });
+    console.log(clrset);
     $("#materialOptsDisplay_"+uid).data("selected", clrset.join(" "));
     refreshColourDisplay(uid);
   });
@@ -695,6 +697,7 @@ function uuidv4() {
   );
 }
 
+// TODO - here pack creation
 function startCreateBhvPack(event) {
   event.preventDefault();
   var f, processed=[];
@@ -721,23 +724,21 @@ function startCreateBhvPack(event) {
 
 function writeBhvPack(images, uuids) {
   var pack = new JSZip();
-  var manifest = JSON.stringify({
-    format_version: 2,
-    header: {
-      name: $("#bpackNameInput").val(),
-      description: $("#bpackDescInput").val(),
-      uuid: uuids[0],
-      version: [1,0,0],
-      min_engine_version: [1,17,0]
-    },
-    modules: [{
-      description: "Created with https://gd-codes.github.io/mc-pixelart-maker, on " + new Date().toDateString(),
-      type: "data",
-      uuid: uuids[1],
-      version: [1,0,0]
-    }]
+
+  var pack_name = $("#bpackNameInput").val(); // NAME = FOLDER
+  console.log(pack_name);
+  // description: $("#bpackDescInput").val(),
+
+
+  var pack_mcmeta = JSON.stringify({
+    "pack": {
+      "pack_format": 8,
+      "description": "Created with https://gd-codes.github.io/mc-pixelart-maker, on " + new Date().toDateString()
+    }
   }, null, 2);
-  pack.file('manifest.json', manifest);
+  pack.file('pack.mcmeta', pack_mcmeta);
+
+
   var icon;
   if (images.length>4) {
     icon = makeLogo(images.reverse().slice(-4).map(x => x.pic));
@@ -747,9 +748,15 @@ function writeBhvPack(images, uuids) {
     icon = makeLogo(images.reverse().map(x => x.pic));
   }
   pack.file('pack_icon.png', icon.split(',')[1], {base64:true});
+
+
+  var data = pack.folder("data");
+  var mapart = data.folder("mapart");
+
+
   var keep = Boolean($("#keepBlocks:checked").length > 0);
   var link = Boolean($("#useLinkedPos:checked").length > 0);
-  var fnfolder = pack.folder('functions');
+  var fnfolder = mapart.folder('functions');
   for (let o of images) {
     let palette = $("#materialOptsDisplay_"+o.uid).data("selected").split(" ");
     let extrainfo = ($("#3dSwitch_"+o.uid+":checked").length > 0)? $("#heightInput_"+o.uid).val() : 0;
@@ -758,27 +765,43 @@ function writeBhvPack(images, uuids) {
       fnfolder.file(o.name+"/"+(f+1)+".mcfunction", fnlist[f]);
     }
   }
-  var strfolder = pack.folder('structures');
-  strfolder.file("mapart/azalea_leaves.mcstructure", structures.azalea_leaves, {base64:true});
-  strfolder.file("mapart/glow_lichen.mcstructure", structures.glow_lichen, {base64:true});
-  strfolder.file("mapart/glowstone.mcstructure", structures.glowstone, {base64:true});
+
+
+  const strfolder = mapart.folder('structures');
+
+  // $.get("http://127.0.0.1:8080/test_datapack/structures/mapart/azalea_leaves.nbt", function(data, status){
+  //   strfolder.file("azalea_leaves.nbt", data);
+  // });
+  // $.get("http://127.0.0.1:8080/test_datapack/structures/mapart/glow_lichen.nbt", function(data, status){
+  //   strfolder.file("glow_lichen.nbt", data);
+  // });
+  // $.get("http://127.0.0.1:8080/test_datapack/structures/mapart/glowstone.nbt", function(data, status){
+  //   strfolder.file("glowstone.nbt", data);
+  // });
+
+  strfolder.file("azalea_leaves.nbt", structures.azalea_leaves, {base64:true});
+  strfolder.file("glow_lichen.nbt", structures.glow_lichen, {base64:true});
+  strfolder.file("glowstone.nbt", structures.glowstone, {base64:true});
+
+  
+  
   pack.generateAsync({type:"blob"})
-    .then(function(blob) {
-        setSaveAsZip(blob);
-        $("#spinnerModal").addClass('d-none');
-        $("#spinnerModal").removeClass('d-block');
-    }, function (err) {
-        alert("Uh oh\nSomething went wrong !");
-        console.error("Unexpected error creating blob : \n", err);
-        $("#spinnerModal").addClass('d-none');
-        $("#spinnerModal").removeClass('d-block');
+  .then(function(blob) {
+      setSaveAsZip(blob, pack_name);
+      $("#spinnerModal").addClass('d-none');
+      $("#spinnerModal").removeClass('d-block');
+  }, function (err) {
+      alert("Uh oh\nSomething went wrong !");
+      console.error("Unexpected error creating blob : \n", err);
+      $("#spinnerModal").addClass('d-none');
+      $("#spinnerModal").removeClass('d-block');
   });
   pack.generateAsync({type:"base64"})
     .then(function(uri) {
-     uri = "data:application/zip;base64," + uri;
+    uri = "data:application/zip;base64," + uri;
       $("#altDownloadPack").click(function(event) {
         event.preventDefault();
-        saveAs(uri, "pixelart.mcpack");
+        saveAs(uri, `${pack_name}.zip`);
       })
     }, function(err) {
       alert("Uh oh\nSomething went wrong !");
@@ -788,11 +811,11 @@ function writeBhvPack(images, uuids) {
 
 
 
-function setSaveAsZip(blob) {
+function setSaveAsZip(blob, name) {
   $("#packActionsPreProcess").addClass('d-none');
   $("#packActionsPostProcess").removeClass('d-none');
   $("#downloadPackBtn").click(function() {
-    saveAs(blob, "pixelart.mcpack");
+    saveAs(blob, `${name}.zip`);
   });
 }
 

@@ -37,7 +37,7 @@ function makeTrMaterialSelection(element) {
 
   var td1 = $("<td class></td>");
   var td2 = $('<div class="form-check checkbox-scaled"></div>');
-  var input = $('<input type="checkbox" class="form-check-input position-static" name="clrSelect" value="white"/>');
+  var input = $(`<input type="checkbox" class="form-check-input position-static" name="clrSelect" value="${element.name}"/>`);
   td2.append(input);
   td1.append(td2);
   tr.append(td1);

@@ -80,7 +80,7 @@ function writeCommands(name, imobj, palette, extrainfo, keep, linkpos) {
     if (!keep) { //Replace any existing blocks with air
       for (var j=0; j<=ymax; j++) {
         fun+="fill ~".concat(xloop, " ~", j, " ~", zloop, " ~", xloop+63, 
-                             " ~", j, " ~", zloop+127, " air 0 replace\n");
+                             " ~", j, " ~", zloop+127, " air replace\n");
       }
     }
     for (x=xloop; x < xloop+64; x++) {
@@ -95,12 +95,15 @@ function writeCommands(name, imobj, palette, extrainfo, keep, linkpos) {
           //     `structure load mapart:azalea_leaves ~${x} ~${y} ~${z}\n`;
           //   break;
           case "glow_lichen":
+            fun += `setblock ~${x} ~${y-1} ~${z} structure_block[mode=load]{name:"mapart:glow_lichen",posX:0,posY:0,posZ:0,rotation:"NONE",mirror:"NONE",mode:"LOAD"} replace\n`;
+            fun += `setblock ~${x} ~${y-2} ~${z} redstone_block replace\n`;
+            fun += `setblock ~${x} ~${y-2} ~${z} air replace\n`;
             // fun += ((keep)?`execute @p ~ ~ ~ detect ~${x} ~${y-1} ~${z} air -1 `:"") + 
-            fun += ((keep)?`execute if block ~${x} ~${y-1} ~${z} air run `:"") + 
-              // `structure load mapart:glow_lichen ~${x} ~${y-1} ~${z}\n`;
-              `setblock ~ ~ ~ structure_block[mode=load]{name:"mapart:glow_lichen",posX:${x},posY:${y},posZ:${z},rotation:"NONE",mirror:"NONE",mode:"LOAD"} replace\n`;
-              fun += "setblock ~ ~-1 ~ redstone_block replace\n";
-              fun += "setblock ~ ~-1 ~ air replace\n";
+            // fun += ((keep)?`execute if block ~${x} ~${y-1} ~${z} air run `:"") + 
+            //   // `structure load mapart:glow_lichen ~${x} ~${y-1} ~${z}\n`;
+            //   `setblock ~${x} ~${y} ~${z} structure_block[mode=load]{name:"mapart:glow_lichen",posX:0,posY:0,posZ:0,rotation:"NONE",mirror:"NONE",mode:"LOAD"} replace\n`;
+            //   fun += `setblock ~${x} ~${y-1} ~${z} redstone_block replace\n`;
+            //   fun += `setblock ~${x} ~${y-1} ~${z} air replace\n`;
             break;
           default : // Normal case, direct placement for most of the blocks
             fun += `setblock ~${x} ~${y} ~${z} ${code}${replMode}`;
@@ -110,10 +113,11 @@ function writeCommands(name, imobj, palette, extrainfo, keep, linkpos) {
     if (!linkpos && i<zone_origins.length-1) { //If not linked and there are more zones,
       var nextzone = zone_origins[i+1];        //Shift the user to the origin for next zone
       //Marker block
-      fun += "structure load mapart:glowstone ~".concat(nextzone[0]-x0, " ~-1 ~", nextzone[1]-z0, "\n");
-      fun += `setblock ~ ~ ~ structure_block[mode=load]{name:"mapart:glowstone",posX:${nextzone[0]-x0},posY:-1,posZ:${nextzone[1]-z0},rotation:"NONE",mirror:"NONE",mode:"LOAD"} replace\n`;
-      fun += "setblock ~ ~-1 ~ redstone_block replace\n";
-      fun += "setblock ~ ~-1 ~ air replace\n";
+      // fun += "structure load mapart:glowstone ~".concat(nextzone[0]-x0, " ~-1 ~", nextzone[1]-z0, "\n");
+      // fun += `setblock ~ ~ ~ structure_block[mode=load]{name:"mapart:glowstone",posX:${nextzone[0]-x0},posY:-1,posZ:${nextzone[1]-z0},rotation:"NONE",mirror:"NONE",mode:"LOAD"} replace\n`;
+      // fun += "setblock ~ ~-1 ~ redstone_block replace\n";
+      // fun += "setblock ~ ~-1 ~ air replace\n";
+      fun += `setblock ~${nextzone[0]-x0} ~-1 ~${nextzone[1]-z0} glowstone replace\n`;
       fun += "teleport @p ~".concat(nextzone[0]-x0, " ~ ~", nextzone[1]-z0, "\n")
     }
     fun = fun.replace(/~0/gm, "~");

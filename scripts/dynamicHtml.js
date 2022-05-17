@@ -46,10 +46,12 @@ function makeTrMaterialSelection(element) {
   color += element.color[0] + "," + element.color[1] + "," + element.color[2];
   var td3 = $(`<td class="colour-insert display-4" data-colour="rgb(${color})"></td>`);
   var td4 = $("<td></td>").text(element.name);
-  var td5 = $("<td></td>").text(element.description);
+  var td5 = $("<td></td>").text(element.material);
+  var td6 = $("<td></td>").text(element.description);
   tr.append(td3);
   tr.append(td4);
   tr.append(td5);
+  tr.append(td6);
 
   return tr;
 }

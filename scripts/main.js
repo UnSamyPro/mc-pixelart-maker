@@ -26,361 +26,361 @@ var colors = {
           "name": "sand",
           "material": "birch_planks",
           "color": [247, 233, 163],
-          "description": ""
+          "description": "Sand, Birch (Planks, Log (vertical), Stripped Log, Wood, Stripped Wood, Sign, Pressure Plate, Trapdoor, Stairs, Slab, Fence Gate, Fence, Door), Sandstone (All variants, all slabs, all stairs, all walls), Glowstone, End Stone, End Stone Bricks (slab, stairs, wall), Bone Block, Turtle Egg, Scaffolding, Candle"
       },
       {
           "name": "wool",
           "material": "cobweb",
           "color": [199, 199, 199],
-          "description": ""
+          "description": "Cobweb, Mushroom Stem, Bed (head), White Candle"
       },
       {
           "name": "fire",
           "material": "redstone_block",
           "color": [255, 0, 0],
-          "description": ""
+          "description": "Lava, TNT, Fire, Redstone Block"
       },
       {
           "name": "ice",
           "material": "ice",
           "color": [160, 160, 255],
-          "description": ""
+          "description": "Ice, Frosted Ice, Packed Ice, Blue Ice"
       },
       {
           "name": "metal",
           "material": "iron_block",
           "color": [167, 167, 167],
-          "description": ""
+          "description": "Block of Iron, Iron Door, Brewing Stand, Heavy Weighted Pressure Plate, Iron Trapdoor, Lantern, Anvil (all damage levels), Grindstone, Soul Fire Lantern, Lodestone"
       },
       {
           "name": "plant",
           "material": "oak_leaves",
           "color": [0, 124, 0],
-          "description": ""
+          "description": "Sapling, Flowers, Wheat, Sugar Cane, Pumpkin Stem, Melon Stem, Lily Pad, Cocoa, Carrots, Potatoes, Beetroots, Sweet Berry Bush, Grass, Fern, Vines, Leaves, Cactus, Bamboo, Cave Vines, Spore Blossom, (Flowering) Azalea, Dripleaf (big and small)"
       },
       {
           "name": "snow",
           "material": "snow_block",
           "color": [255, 255, 255],
-          "description": ""
+          "description": "Snow, Snow Block, White (Bed (foot), Wool, Stained Glass, Carpet, Shulker Box, Glazed Terracotta, Concrete, Concrete Powder), Powder Snow"
       },
       {
           "name": "clay",
           "material": "clay",
           "color": [164, 168, 184],
-          "description": ""
+          "description": "Clay, Infested Block (not including infested Deepslate)"
       },
       {
           "name": "dirt",
           "material": "dirt",
           "color": [151, 109, 77],
-          "description": ""
+          "description": "Dirt, Coarse Dirt, Farmland, Dirt Path, Granite (slab, stairs, wall), Polished Granite (slab, stairs), Jungle (Planks, Log (vertical), Stripped Log, Wood, Stripped Wood, Sign, Pressure Plate, Trapdoor, Stairs, Slab, Fence Gate, Fence, Door), Jukebox, Brown Mushroom Block, Rooted Dirt, Hanging Roots"
       },
       {
           "name": "stone",
           "material": "stone",
           "color": [112, 112, 112],
-          "description": ""
+          "description": "Stone (slab, stairs), Andesite (slab, stairs, wall), Polished Andesite (slab, stairs), Cobblestone (slab, stairs, wall), Bedrock, Gold Ore, Iron Ore, Coal Ore, Lapis Lazuli Ore, Dispenser, Mossy Cobblestone (slab, stairs, wall), Spawner, Diamond Ore, Furnace, Stone Pressure Plate, Redstone Ore, Stone Bricks (all variants, all slabs, all stairs, all walls), Emerald Ore, Ender Chest, Dropper, Smooth Stone (slab), Observer, Smoker, Blast Furnace, Stonecutter, Sticky Piston, Piston, Piston Head, Gravel, Acacia Log (side), Cauldron (including cauldrons with water, lava, or powdered snow), Hopper, Copper Ore"
       },
       {
           "name": "water",
           "material": "water",
           "color": [64, 64, 255],
-          "description": ""
+          "description": "Kelp, Seagrass, Water, Bubble Column"
       },
       {
           "name": "wood",
           "material": "oak_planks",
           "color": [143, 119, 72],
-          "description": ""
+          "description": "Oak (Planks, Log (vertical), Stripped Log, Wood, Stripped Wood, Sign, Door, Pressure Plate, Fence, Trapdoor, Fence Gate, Slab, Stairs), Note Block, Bookshelf, Chest, Crafting Table, Trapped Chest, Daylight Detector, Loom, Barrel, Cartography Table, Fletching Table, Lectern, Smithing Table, Composter, Bamboo Sapling, Dead Bush, Petrified Oak Slab, Beehive, Banners (all colors, when not as markers)"
       },
       {
           "name": "quartz",
           "material": "diorite",
           "color": [255, 252, 245],
-          "description": ""
+          "description": "Diorite (stairs, slab, wall), Polished Diorite (stairs, slab), Birch Log (side), Quartz Block (all variants, all slabs, all stairs), Sea Lantern, Target"
       },
       {
           "name": "color_orange",
           "material": "orange_concrete",
           "color": [216, 127, 51],
-          "description": ""
+          "description": "Acacia (Planks, Log (vertical), Stripped Log, Stripped Wood, Sign, Trapdoor, Slab, Stairs, Pressure Plate, Fence Gate, Fence, Door), Red Sand, Orange (Wool, Carpet, Shulker Box, Bed (foot), Stained Glass, Glazed Terracotta, Concrete, Concrete Powder, Candle), Pumpkin, Carved Pumpkin, Jack o'Lantern, Terracotta, Red Sandstone (all variants, all stairs, all slabs, all walls), Honey Block, Honeycomb Block, Block of Copper (including all cut, waxed, stair, and slab variants), Lightning Rod, Block of Raw Copper"
       },
       {
           "name": "color_magenta",
           "material": "magenta_concrete",
           "color": [178, 76, 216],
-          "description": ""
+          "description": "Magenta (Wool, Carpet, Shulker Box, Bed (foot), Stained Glass, Glazed Terracotta, Concrete, Concrete Powder, Candle), Purpur (all variants, slab, stairs)"
       },
       {
           "name": "color_light_blue",
           "material": "light_blue_concrete",
           "color": [102, 153, 216],
-          "description": ""
+          "description": "Light Blue (Wool, Carpet, Shulker Box, Bed (foot), Stained Glass, Glazed Terracotta, Concrete, Concrete Powder, Candle), Soul Fire"
       },
       {
           "name": "yellow",
           "material": "yellow_concrete",
           "color": [229, 229, 51],
-          "description": ""
+          "description": "Sponge, Wet Sponge, Yellow (Wool, Carpet, Shulker Box, Bed (foot), Stained Glass, Glazed Terracotta, Concrete, Concrete Powder, Candle), Hay Bale, Horn Coral (Coral Block, Coral, Coral Fan), Bee Nest"
       },
       {
           "name": "color_light_green",
           "material": "lime_concrete",
           "color": [127, 204, 25],
-          "description": ""
+          "description": "Lime (Wool, Carpet, Shulker Box, Bed (foot), Stained Glass, Glazed Terracotta, Concrete, Concrete Powder, Candle), Melon"
       },
       {
           "name": "color_pink",
           "material": "pink_concrete",
           "color": [242, 127, 165],
-          "description": ""
+          "description": "Pink (Wool, Carpet, Shulker Box, Bed (foot), Stained Glass, Glazed Terracotta, Concrete, Concrete Powder, Candle), Brain Coral (Coral Block, Coral, Coral Fan)"
       },
               {
           "name": "color_gray",
           "material": "gray_concrete",
           "color": [76, 76, 76],
-          "description": ""
+          "description": "Acacia Wood, Gray (Wool, Carpet, Shulker Box, Bed (foot), Stained Glass, Glazed Terracotta, Concrete, Concrete Powder, Candle), Dead Coral (Coral Block, Coral, Coral Fan), Tinted Glass"
       },
       {
           "name": "color_light_gray",
           "material": "light_gray_concrete",
           "color": [153, 153, 153],
-          "description": ""
+          "description": "Light Gray (Wool, Carpet, Shulker Box, Bed (foot), Stained Glass, Banner, Glazed Terracotta, Concrete, Concrete Powder, Candle), Structure Block, Jigsaw Block"
       },
       {
           "name": "color_cyan",
           "material": "cyan_concrete",
           "color": [76, 127, 153],
-          "description": ""
+          "description": "Cyan (Wool, Carpet, Shulker Box, Bed (foot), Stained Glass, Glazed Terracotta, Concrete, Concrete Powder, Candle), Prismarine (slab, stairs, wall), Warped (Roots, Fungus), Twisting Vines, Nether Sprouts, Sculk Sensor"
       },
       {
           "name": "color_purple",
           "material": "purple_concrete",
           "color": [127, 63, 178],
-          "description": ""
+          "description": "Shulker Box, Purple (Wool, Carpet, Bed (foot), Stained Glass, Glazed Terracotta, Concrete, Concrete Powder, Candle), Mycelium, Chorus Plant, Chorus Flower, Repeating Command Block, Bubble Coral (Coral Block, Coral, Coral Fan), Amethyst Block, Budding Amethyst, Amethyst Cluster, Amethyst Bud (all sizes),"
       },
       {
           "name": "color_blue",
           "material": "blue_concrete",
           "color": [	51, 76, 178],
-          "description": ""
+          "description": "Blue (Wool, Carpet, Shulker Box, Bed (foot), Stained Glass, Glazed Terracotta, Concrete, Concrete Powder, Candle), Tube Coral (Coral Block, Coral, Coral Fan)"
       },
       {
           "name": "color_brown",
           "material": "brown_concrete",
           "color": [102, 76, 51],
-          "description": ""
+          "description": "Dark Oak (Planks, Log, Stripped Log, Wood, Stripped Wood, Sign, Pressure Plate, Trapdoor, Stairs, Slab, Fence Gate, Fence, Door), Spruce Log (side), Brown (Wool, Carpet, Shulker Box, Bed (foot), Stained Glass, Glazed Terracotta, Concrete, Concrete Powder, Candle), Soul Sand, Command Block, Brown Mushroom, Soul Soil"
       },
       {
           "name": "color_green",
           "material": "green_concrete",
           "color": [102, 127, 51],
-          "description": ""
+          "description": "Green (Wool, Carpet, Shulker Box, Bed (foot), Stained Glass, Glazed Terracotta, Concrete, Concrete Powder, Candle), End Portal Frame, Chain Command Block, Sea Pickle, Moss Carpet, Moss Block, Dried Kelp Block"
       },
       {
           "name": "color_red",
           "material": "red_concrete",
           "color": [153, 51, 51],
-          "description": ""
+          "description": "Red (Wool, Carpet, Shulker Box, Bed (foot), Stained Glass, Glazed Terracotta, Concrete, Concrete Powder, Candle), Bricks (slab, stairs, wall), Red Mushroom Block, Nether Wart, Enchanting Table, Nether Wart Block, Fire Coral (Coral Block, Coral, Coral Fan), Red Mushroom, Shroomlight"
       },
       {
           "name": "color_black",
           "material": "black_concrete",
           "color": [25, 25, 25],
-          "description": ""
+          "description": "Black (Wool, Carpet, Shulker Box, Bed (foot), Stained Glass, Glazed Terracotta, Concrete, Concrete Powder, Candle), Obsidian, End Portal, Dragon Egg, Coal Block, End Gateway, Basalt, Polished Basalt, Smooth Basalt, Block of Netherite, Ancient Debris, Crying Obsidian, Respawn Anchor, Blackstone (all variants, all stairs, all slabs, all walls), Gilded Blackstone"
       },
       {
           "name": "gold",
           "material": "gold_block",
           "color": [250, 238, 77],
-          "description": ""
+          "description": "Block of Gold, Light Weighted Pressure Plate, Bell, Block of Raw Gold"
       },
       {
           "name": "diamond",
           "material": "diamond_block",
           "color": [92, 219, 213],
-          "description": ""
+          "description": "Block of Diamond, Beacon, Prismarine Bricks (slab, stairs), Dark Prismarine (slab, stairs), Conduit"
       },
       {
           "name": "lapis",
           "material": "lapis_block",
           "color": [74, 128, 255],
-          "description": ""
+          "description": "Block of Lapis Lazuli"
       },
       {
           "name": "emerald",
           "material": "emerald_block",
           "color": [0, 217, 58],
-          "description": ""
+          "description": "Block of Emerald"
       },
       {
           "name": "podzol",
           "material": "spruce_planks",
           "color": [129, 86, 49],
-          "description": ""
+          "description": "Podzol, Spruce (Planks, Log (vertical), Stripped Log, Wood, Stripped Wood, Sign, Pressure Plate, Trapdoor, Stairs, Slab, Fence Gate, Fence, Door), Oak Log (side), Jungle Log (side), Campfire, Soul Campfire"
       },
       {
           "name": "nether",
           "material": "netherrack",
           "color": [112, 2, 0],
-          "description": ""
+          "description": "Netherrack, Nether Bricks (fence, slab, stairs, wall, chiseled, cracked), Nether Gold Ore, Nether Quartz Ore, Magma Block, Red Nether Bricks (slab, stairs, wall), Crimson (Roots, Fungus), Weeping Vines"
       },
       {
           "name": "terracotta_white",
           "material": "white_terracotta",
           "color": [209, 177, 161],
-          "description": ""
+          "description": "White Terracotta, Calcite"
       },
       {
           "name": "terracotta_orange",
           "material": "orange_terracotta",
           "color": [159, 82, 36],
-          "description": ""
+          "description": "Orange Terracotta"
       },
       {
           "name": "terracotta_magenta",
           "material": "magenta_terracotta",
           "color": [149, 87, 108],
-          "description": ""
+          "description": "Magenta Terracotta"
       },
       {
           "name": "terracotta_light_blue",
           "material": "light_blue_terracotta",
           "color": [112, 108, 138],
-          "description": ""
+          "description": "Light Blue Terracotta"
       },
       {
           "name": "terracotta_yellow",
           "material": "yellow_terracotta",
           "color": [186, 133, 36],
-          "description": ""
+          "description": "Yellow Terracotta"
       },
       {
           "name": "terracotta_light_green",
           "material": "lime_terracotta",
           "color": [103, 117, 53],
-          "description": ""
+          "description": "Lime Terracotta"
       },
       {
           "name": "terracotta_pink",
           "material": "pink_terracotta",
           "color": [160, 77, 78],
-          "description": ""
+          "description": "Pink Terracotta"
       },
       {
           "name": "terracotta_gray",
           "material": "gray_terracotta",
           "color": [57, 41, 35],
-          "description": ""
+          "description": "Gray Terracotta, Tuff"
       },
       {
           "name": "terracotta_light_gray",
           "material": "light_gray_terracotta",
           "color": [135, 107, 98],
-          "description": ""
+          "description": "Light Gray Terracotta, Exposed Copper (including all cut, waxed, stair, and slab variants)"
       },
       {
           "name": "terracotta_cyan",
           "material": "cyan_terracotta",
           "color": [87, 92, 92],
-          "description": ""
+          "description": "Cyan Terracotta"
       },
       {
           "name": "terracotta_purple",
           "material": "purple_terracotta",
           "color": [122, 73, 88],
-          "description": ""
+          "description": "Purple (Terracotta, Shulker Box)"
       },
       {
           "name": "terracotta_blue",
           "material": "blue_terracotta",
           "color": [76, 62, 92],
-          "description": ""
+          "description": "Blue Terracotta"
       },
       {
           "name": "terracotta_brown",
           "material": "brown_terracotta",
           "color": [76, 50, 35],
-          "description": ""
+          "description": "Brown Terracotta, Pointed Dripstone, Dripstone Block"
       },
       {
           "name": "terracotta_green",
           "material": "green_terracotta",
           "color": [76, 82, 42],
-          "description": ""
+          "description": "Green Terracotta"
       },
       {
           "name": "terracotta_red",
           "material": "red_terracotta",
           "color": [142, 60, 46],
-          "description": ""
+          "description": "Red Terracotta"
       },
       {
           "name": "terracotta_black",
           "material": "black_terracotta",
           "color": [37, 22, 16],
-          "description": ""
+          "description": "Black Terracotta"
       },
       {
           "name": "crimson_nylium",
           "material": "crimson_nylium",
           "color": [189, 48, 49],
-          "description": ""
+          "description": "Crimson Nylium"
       },
       {
           "name": "crimson_stem",
           "material": "crimson_stem",
           "color": [148, 63, 97],
-          "description": ""
+          "description": "Crimson (Fence, Fence Gate, Planks, Pressure Plate, Sign, Slab, Stairs, Stem, Stripped Stem, Trapdoor, Door)"
       },
       {
           "name": "crimson_hyphae",
           "material": "crimson_hyphae",
           "color": [92, 25, 29],
-          "description": ""
+          "description": "Crimson (Hyphae, Stripped Hyphae)"
       },
       {
           "name": "warped_nylium",
           "material": "warped_nylium",
           "color": [22, 126, 134],
-          "description": ""
+          "description": "Warped Nylium, Oxidized Copper (including all cut, waxed, stair, and slab variants)"
       },
       {
           "name": "warped_stem",
           "material": "warped_stem",
           "color": [58, 142, 140],
-          "description": ""
+          "description": "Warped (Fence, Fence Gate, Planks, Pressure Plate, Sign, Slab, Stairs, Stem, Stripped Stem, Trapdoor, Door), Weathered Copper (including all cut, waxed, stair, and slab variants)"
       },
       {
           "name": "warped_hyphae",
           "material": "warped_hyphae",
           "color": [86, 44, 62],
-          "description": ""
+          "description": "Warped (Hyphae, Stripped Hyphae)"
       },
       {
           "name": "warped_wart_block",
           "material": "warped_wart_block",
           "color": [20, 180, 133],
-          "description": ""
+          "description": "Warped Wart Block"
       },
       {
           "name": "deepslate",
           "material": "deepslate",
           "color": [100, 100, 100],
-          "description": ""
+          "description": "Deepslate (Gold Ore, Iron Ore, Coal Ore, Lapis Ore, Diamond Ore, Redstone Ore, Emerald Ore, Copper Ore), Deepslate (all variants, all stairs, all slabs, and all walls), Infested Deepslate"
       },
               {
           "name": "raw_iron",
           "material": "raw_iron_block",
           "color": [216, 175, 147],
-          "description": ""
+          "description": "Block of Raw Iron"
       },
       {
           "name": "glow_lichen",
           "material": "glow_lichen",
           "color": [127, 167, 150],
-          "description": ""
+          "description": "Glow Lichen"
       }
   ]
 };

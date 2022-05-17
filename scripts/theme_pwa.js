@@ -57,3 +57,30 @@ Ensure that this page is not open in an Incognito / Private window and that Serv
 On desktop, PWAs may not be fully supported in browsers other than recent versions of Chrome, Edge & Safari.`);
     }
 }
+
+
+
+
+  
+  
+function copyToClipboard(str) {
+    /* Get the text field */
+    const copyText = document.createElement('textarea');
+    copyText.value = str;
+    copyText.setAttribute('readonly', '');
+    copyText.style.position = 'absolute';
+    copyText.style.left = '-9999px';
+    document.body.appendChild(copyText);
+
+    /* Select the text field */
+    copyText.select();
+    copyText.setSelectionRange(0, 99999); /* For mobile devices */
+
+    /* Copy the text inside the text field */
+    navigator.clipboard.writeText(copyText.value);
+
+    setTimeout(async() => {
+        alert("Copied the text: " + copyText.value);
+    }, 300);
+    document.body.removeChild(copyText);
+}
